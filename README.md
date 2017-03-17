@@ -1,13 +1,13 @@
 ### class [Node](https://github.com/HafisCZ/VSB-PRG1/blob/master/algorithms2/Node.h)
 This class is represents an object which stores these parameters:
 
-**Type** | **Variable name** | **Meaning**
---- | --- | ---
-C | value | Actual value of node itself
-Node<C>** | subordinates | Children nodes (are located UNDER the node)
-Node<C>* | superior | Parent of node (is located ABOVE the node)
-int | subordinate_count | N of children nodes
-bool | set | True if value is set
+| Type | Variable name | Meaning |
+| --- | --- | --- |
+| C | value | Actual value of node itself |
+| Node<C>** | subordinates | Children nodes (are located UNDER the node) |
+| Node<C>* | superior | Parent of node (is located ABOVE the node) |
+| int | subordinate_count | N of children nodes |
+| bool | set | True if value is set |
 
 ### Constructor
 ```cpp
