@@ -1,4 +1,4 @@
-**Way of programming based around objects which contain own data and methods.**
+<p align="center">Way of programming based around objects which contain own data and methods.</p>
 
 ---
 * [Dynamic Memory Allocation](part0.md)
