@@ -3,8 +3,8 @@
 ---
 * [Dynamic Memory Allocation](part0.md)
 * [Basics](part1.md)
-* [Stack, Queue and List](part2.md)
-* [Node class](part3.md)
+* [Stack and Queue](part2.md)
+* [Creating Node class](part3.md)
 * [Using Nodes in List](part4.md)
 * [Using Nodes in Stack and Queue](part5.md)
 * [Creating a tree](part6.md)
