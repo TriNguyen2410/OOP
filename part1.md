@@ -119,7 +119,7 @@ obj.myFunction(); /// Call function on myObject obj
 ```
 ---
 ### Get\Set methods
-This is not completely neccesary step, however, it's better and more secure to use these methods. This can prove useful, when you does not want the user to directly use variables stored inside the object. Simply, use ```private``` keyword for that variable and create a pair of functions, where one of them would return the value of the variable, and another will accept value and then set the variable inside the object to that value.
+This is not completely neccesary step, however, it's better and more secure to use these methods. This can prove useful, when you do not want the user to directly use variables stored inside the object. Simply, use ```private``` keyword for that variable and create a pair of functions, where one of them would return the value of the variable, and another will accept value and then set the variable inside the object to that value.
 ```cpp
 class myObject {
   private:
