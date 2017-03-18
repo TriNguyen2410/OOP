@@ -101,6 +101,7 @@ class myObject {
 };
 ```
 However, this can be dangerous, if you decide to use ```delete``` while using the same adress in multiple places.
+
 ---
 ### Methods
 You can use any function inside of object, like you would use it outside. Remember to use ```public``` visibility to make sure that the function can be used outside of the object. 
@@ -140,6 +141,7 @@ class myObject {
 ### Example
 Here you'll see how a real life scenario can be turned into few objects:
 > Imagine you have container with liquid, and you want to know, how much does the container weight with any liquid. Use kilograms and cubic meters as units.
+
 It does sound slightly complicated, but let's break it into few steps.
 - Liquid
 
