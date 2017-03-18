@@ -1,83 +1,81 @@
-### class [Node](https://github.com/HafisCZ/VSB-PRG1/blob/master/algorithms2/Node.h)
-This class is represents an object which stores these parameters:
+### Object Oriented Programming
+OOP is a way of programming based around objects which contain own data and methods.
+### Creating an object
+Objects are created with keyword ```class``` or ```struct``` like this:
+```cpp
+class myObject {
+};
 
-| Type | Variable name | Meaning |
-| --- | --- | --- |
-| C | value | Actual value of node itself |
-| Node<C>** | subordinates | Children nodes (are located UNDER the node) |
-| Node<C>* | superior | Parent of node (is located ABOVE the node) |
-| int | subordinate_count | N of children nodes |
-| bool | set | True if value is set |
+struct myObject2 {
+};
+```
+The difference between ```class``` and ```struct``` is default visibility of it's content, for example:
+```cpp
+class myObject {
+  int f; /// This variable can be used only here (in declaration/definition of the class).
+};
 
+struct myObject2 {
+  int f; /// This variable can be used from anywhere.
+};
+```
+### Visibility
+By default, visibility depends on keyword used when creating the class. However, this can be changed with keywords ```public```, ```proctected``` and ```private```. This example will use ```class``` keyword, to make visibility private, by default.
+```cpp 
+class myObject {
+  int a; /// The same as with private.
+  private:
+    int b; /// Can be used only here.
+  protected:
+    int c; /// Similar to private, but can be used also from objects that extend this object.
+  public:
+    int d; /// Can be used from anywhere.
+};
+```
 ### Constructor
+Constructor is special function in each object. It can be overloaded as any other function.
+Return type is not used, since the function returns the object itself (creates it).
 ```cpp
-Node(const C& value, Node<C> *superior = NULL, bool update_superior = false) {
-	this->subordinate_ = NULL;
-	this->subordinate_count_ = 0;
-	this->superior_ = superior;
-	if (this->superior_ != NULL && update_superior) this->superior_->addSubordinate(this);
-	this->value_ = value;
-	this->set_ = true;
-}
+class myObject {
+  public:
+    myObject () {
+    }
+    myObject (int a) { /// overloaded constructor
+    }
+};
 ```
-This class constains one constructor, with 3 parameters:
-
-```const C& value``` - Value of new node, required parameter
-
-```Node<C> *superior``` - Parent of new node
-
-```update_superior``` - Whether parent node should be updated with child node
-
-Constructor sets parameters of node to default / function parameter values. If ```update_superior``` is specified, then calls ```addSubordinate()``` with itself as parameter on parent node.
-
-### Get / Set methods
+Also, contructor can contain so-called defaults, which are default values for variables.
+Then the value does not have to be specified and the default value is then used.
+However, default values can be used only at the end of parameter list, with required parameters first.
 ```cpp
-inline Node** getSubordinates() {
-	return this->subordinate_;
-}
-inline Node* getSuperior() {
-	return this->superior_;
-}
-inline Node* getSubordinate() {
-	return (this->subordinate_count_ > 0 ? this->subordinate_[0] : NULL);
-}
-inline Node* getSubordinateAt(int index) {
-  return (index >= 0 && index < this->subordinate_count_ ? this->subordinate_[index] : NULL);
-}
-inline C getValue() {
-	return this->value_;
-}
-inline int nSubordinates() {
-	return this->subordinate_count_;
-}
-inline bool isSet() {
-	return this->set_;
-}
-inline bool hasSubordinate() {
-	return (this->subordinate_count_ > 0);
-}
-inline bool hasSuperior() {
-	return (this->subordinate_ != NULL);
-}
-inline void setValue(const C& value) {
-	this->value_ = value;
-}
+class myObject {
+  public:
+    myObject (int a = 0) {
+    }
+};
 ```
-These methods are pretty basic, either set value or return value.
-
-### fill()
+Constructor created like that can be called in two ways: ```myObject()``` aswell as ```myObject(2)```. The first way will function in this case like ```myObject(0)```.
+### Destructor
+This function is called when object goes out-of-scope. For example when static object is created and then the program ends.
+It is very handy when you use pointers and ```new```, to call ```delete``` on the pointer for example.
 ```cpp
-void fill(int count) {
-	if (count == 0) this->subordinate_ = NULL;
-	else if (count > 0 && count != this->subordinate_count_) {
-		Node<C> **temporary = new Node<C>*[count];
-		for (int i = 0; i < this->subordinate_count_; i++) temporary[i] = this->subordinate_[i];
-		for (int i = this->subordinate_count_; i < count; i++) temporary[i] = NULL;
-		delete[] this->subordinate_;
-		this->subordinate_ = temporary;
-		this->subordinate_count_ = count;
-	}
-}
+class myObject {
+  public:
+    myObject () {
+    }
+    ~myObject () {
+    }
+};
 ```
-This function takes number of children as parameter, and if it's greater than 0 and not matching current number of children, then expands array of child nodes inside of node.
-First, new array of child nodes is created at size of ```count``` parameter. Then, existing values in old array are copied into the new one and the rest is set to ```NULL```. In the end, the old array is deleted and the pointer is set to the new array of children. Then the total child count is updated.
+
+
+
+
+
+
+
+
+
+
+
+
