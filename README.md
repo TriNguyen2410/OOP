@@ -2,6 +2,7 @@
 OOP is a way of programming based around objects which contain own data and methods.
 
 ---
+* [Dynamic Memory Allocation](part0.md)
 * [Basics](part1.md)
 * [Stack, Queue and List](part2.md)
 * [Node class](part3.md)
