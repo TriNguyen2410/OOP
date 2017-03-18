@@ -1,8 +1,3 @@
----
-title: Basics
-permalink: part1.html
----
-
 ### Creating an object
 Objects are created with keyword ```class``` or ```struct``` like this:
 ```cpp
