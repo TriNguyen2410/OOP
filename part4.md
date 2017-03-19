@@ -64,7 +64,7 @@ void push_back (const T& value) {
   } else {
     Node<T>* selected = this->head; /// Mark our head node as selected
     while (selected->hasChildren()) { 
-      selected = selected->getChild(); /// Until node has no childs, mark child of our marked node
+      selected = selected->getChild(); /// Until node has no child, mark child of our marked node
     }
     selected->setChild(child); /// Add our child to last node
   }
@@ -73,5 +73,8 @@ void push_back (const T& value) {
 
 ---
 ### Removing values
+Again, it is possible to remove values from list from both sides.
 
+- Removing from the front
 
+- Removing from the back
