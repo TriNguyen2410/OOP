@@ -114,3 +114,93 @@ T pop_back () {
   }
 }
 ```
+
+---
+### Double linked list
+As with single linked list, we will need to have a head node. But because we will use parents and children of nodes, we will have also pointer to the end of our list. This will help adding and removing elements from the end much quicker.
+
+---
+### Creating the structure
+We are going to use templated class again.
+```cpp
+template <class T> class DoubleLinkedList {
+  private:
+    Node<T>* head, * tail;
+  public:
+    DoubleLinkedList () {
+      this->head = NULL;
+      this->tail = this->head;
+    }
+};
+```
+
+---
+### Adding values
+We are going to add values from both sides.
+
+1) Adding values to the front
+
+```cpp
+void push_front (const T& value) {
+  Node<T>* parent = new Node<T>(value); /// Create new head node
+  if (this->head == NULL) {
+    this->head = parent;
+  } else {
+    parent->setChild(this->head); /// Set head as parent's child
+    this->head->setParent(parent);
+    this->head = parent;
+  }
+}
+```
+
+2) Adding values to the back
+
+This is much easier, since we can update the parent node while creating our child node.
+```cpp
+void push_back (const T& value) {
+  this->tail = new Node<T>(value, this->tail, true); /// Set tail to new Node, which parent is old tail
+}
+```
+
+---
+### Removing values
+
+This process is very similar to adding. We have to make sure to delete our Node, not call ```destroy``` on it, otherwise it will remove our whole list.
+
+1) Removing values from the front
+
+It looks a bit complicated, it's because we need to update node's child and parent at once. If we do not do that, we would get memory errors.
+```cpp
+T pop_front () {
+  if (this->head != NULL) {
+    Node<T>* child = this->head->getChild();
+    child->setParent(NULL); /// Set parent of child to NULL (since it's being removed)
+    T value = this->head->getValue();
+    delete this->head;
+    this->head = child;
+    return value;
+  }
+}
+```
+
+2) Removing values from the back
+
+Similar to removing from front, we simply delete the tail and replace it will its parent node.
+```cpp
+T pop_back () {
+  if (this->tail != NULL) {
+    Node<T>* parent = this->tail->getParent();
+    T value = this->tail->getValue();
+    this->parent->removeChildren(); /// Delete child of our parent node
+    this->tail = parent;
+    return value;
+  }
+}
+```
+
+
+
+
+
+
+
