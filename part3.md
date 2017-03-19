@@ -1,6 +1,7 @@
 ### Objectives of this class
 This class will serve as base for improved Queues, Stacks and Lists. And a modification of this class will be used later aswell. 
 We want to hold these value inside:
+
 1) Value of the node itself
 2) Pointer to its parent
 3) Pointer to its children
