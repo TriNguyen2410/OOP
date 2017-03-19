@@ -1,7 +1,6 @@
 ### Lists
 Lists are containers, that behave similar to STL's vectors.
 We will use our Node class for that, and store edge nodes in the list class.
-List made like this has one slight problem, and thats time that it takes when we want to access / remove value that is not on the edge.
 
 ---
 ### Types of lists
@@ -35,13 +34,33 @@ The class now contains contructor, that will only set our head node to ```NULL``
 
 ---
 ### Adding values
-Now it's time to add method for adding values inside. We will set pointer ```current``` to our head node and then set the pointer to it's own child until the child will be ```NULL```.
-This can cause problems with delays, when we have lot of values stored inside.
+Now it's time to add method for adding values inside. 
+
+- Adding values to the front
+
+We will create new Node, set its child to ```head``` and set that node as our new head node. This requires minimum amount of time.
+```cpp
+void push_front (const T& value) {
+  Node<T>* parent = new Node<T>(value); /// Create new head node
+  if (this->head == NULL) {
+    this->head = parent; /// If head node is not set, set it to our new node
+  } else {
+    parent->setChild(this->head); /// Set current head node as child to our new head node
+    this->head = parent;
+  }
+}
+```
+
+- Adding values to the back
+
+We will set pointer ```selected``` to our head node and then set the pointer to it's own child until the child will be ```NULL```.
+This can cause problems with delays, when we have lot of values stored inside, since we need to go through all our nodes.
+That problem is solved by double-linked list.
 ```cpp
 void push_back (const T& value) {
   Node<T>* child = new Node<T>(value); /// Create new node with our value
   if (this->head == NULL) {
-    this->head = child; /// If head node is not set, set it to our new node
+    this->head = child; 
   } else {
     Node<T>* selected = this->head; /// Mark our head node as selected
     while (selected->hasChildren()) { 
@@ -52,7 +71,7 @@ void push_back (const T& value) {
 }
 ```
 
-
-
+---
+### Removing values
 
 
