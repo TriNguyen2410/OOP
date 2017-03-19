@@ -77,4 +77,40 @@ Again, it is possible to remove values from list from both sides.
 
 - Removing from the front
 
+Removing from the front is as easy as adding. However, we need to make sure that we have something to delete.
+```cpp
+T pop_front () {
+  if (this->head != NULL) {
+    Node<T>* child = this->head->getChild();
+    T value = this->head->getValue();
+    delete this->head;
+    this->head = child;
+    return value;
+  }
+}
+```
+
 - Removing from the back
+
+Again, as with adding, first we need to go through all nodes, until we find the second bottom one, and remove its child.
+```cpp
+T pop_back () {
+  if (this->head != NULL) {
+    T value;
+    if (this->head->getChild() == NULL) { /// If head has no child, remove head
+      value = this->head->getValue();
+      delete this->head;
+      this->head = NULL;
+      return value;
+    } else {
+      Node<T>* selected = this->head;
+      while (selected->getChild()->getChild() != NULL) { /// Step in, while selected node has child without child
+        selected = this->selected->getChild();
+      }
+      value = selected->getChildren()->getValue(); /// Get value of last node, then remove it
+      selected->removeChildren();
+      return value;
+    }
+  }
+}
+```
