@@ -129,7 +129,7 @@ template <class T> class DoubleLinkedList {
   public:
     DoubleLinkedList () {
       this->head = NULL;
-      this->tail = this->head;
+      this->tail = this->head; /// Tail must be set to head, not to NULL
     }
 };
 ```
