@@ -188,9 +188,17 @@ void addChild (Node<T>* child) {
   this->children_[this->children_count_ - 1] = child;
 }
 ```
+8) Remove all children
 
-
-
-
+This function is usefull when you need to completely remove all chilren nodes. It will simplify this process a bit, by destroying every children and setting ```children_``` aswell as ```children_count_``` to default values.
+```cpp
+void removeChildren () {
+  for (int i = 0; i < this->children_count_; i++) {
+    this->children_[i]->destroy();
+  }
+  this->children_ = NULL;
+  this->children_count_ = 0;
+}
+```
 
 
