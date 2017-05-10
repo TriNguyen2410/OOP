@@ -1,13 +1,21 @@
-### Pointers
-Pointers are variables that hold adress in memory as value. You can declare the pointer as ```type* pointer```.
-As value, you can store adress of already existing static variable by using ```pointer = &variable``` or create new dynamic variable.
+### Raw pointers
+Pointers are variables, that hold adress (position in memory) to another variable. They can also point nowhere (null pointers).
+It is declared using this syntax: ```pointer_type* pointer_name;```
+
+### Raw pointer to object
+Using address-of operator ```&```, you can get adress of any object and store it in pointer .
+```cpp
+int n;
+int *pointer_to_n = &n;
+```
+This will create a pointer ```pointer_to_n``` to our integer variable ```n```. Now we have two different variables, that are essentialy using the same data. That means we can dereference ```pointer_to_n``` by using dereference operator ```*``` and gain access to n.
 
 ### Keyword ```new``` and ```new []```
 This keyword is used to allocate new memory for single variable, like this:
 ```cpp
 int* pointer = new int;
 ```
-Or for allocating an array, which size can be specified while running:
+Or for allocating an array, which size can be specified while the program is running:
 ```cpp
 int size = 5;
 int* pointer = new int[size]; /// Creates array of size 5
