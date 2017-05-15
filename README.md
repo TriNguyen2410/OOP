@@ -1,6 +1,7 @@
-<p align="center">Way of programming based around objects which contain own data and methods.</p>
+<p align="center">Introducing real life thinking in programming.</p>
 
 ---
+## Tutorials
 * [Dynamic Memory Allocation](part0.md)
 * [Basics](part1.md)
 * [Stack and Queue](part2.md)
@@ -13,3 +14,7 @@
 * [Binary Search Trees](part9.md)
 * [Balanced trees](part10.md)
 * [Hashing tables](part11.md)
+
+---
+## Code snippets
+* [Using unique pointers](snipppet000.md)
