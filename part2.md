@@ -29,7 +29,7 @@ class Stack {
       array = new int[this->size]; /// Allocate our array
     }
     ~Stack () {
-      delete[] this->array; /// Delete array after goind out-of-scope
+      delete[] this->array; /// Delete array after going out-of-scope
     }
 };
 ```
